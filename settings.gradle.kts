@@ -11,3 +11,4 @@ dependencyResolutionManagement {
 rootProject.name = "CobbleChallenge"
 
 include(":app")
+include(":network")
