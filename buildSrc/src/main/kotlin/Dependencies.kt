@@ -12,3 +12,6 @@ object Coroutines {
 
 fun DependencyHandlerScope.withCoil() =
     add("implementation", "io.coil-kt:coil:1.3.2")
+
+fun DependencyHandlerScope.withKotlinxDateTime() =
+    add("implementation", "org.jetbrains.kotlinx:kotlinx-datetime:0.3.0")

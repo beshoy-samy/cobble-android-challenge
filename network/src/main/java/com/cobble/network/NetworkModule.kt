@@ -37,14 +37,27 @@ object NetworkModule {
             .readTimeout(NETWORK_READ_TIMEOUT, TimeUnit.SECONDS)
             .writeTimeout(NETWORK_WRITE_TIMEOUT, TimeUnit.SECONDS)
             .apply {
-                if (BuildConfig.DEBUG)
-                    addInterceptor(
-                        HttpLoggingInterceptor { message ->
-                            if (BuildConfig.DEBUG) Log.i("Network", message)
-                        }.apply { level = HttpLoggingInterceptor.Level.BODY }
-                    )
+
+                addInterceptor { chain ->
+                    var request = chain.request()
+                    val url =
+                        request.url.newBuilder()
+                            .addQueryParameter("apiKey", NetworkKeys.getAPIKey())
+                            .build()
+                    request = request.newBuilder().url(url).build()
+                    chain.proceed(request)
+                }
+
+                if (BuildConfig.DEBUG) logRequests()
             }
             .build()
+
+    private fun OkHttpClient.Builder.logRequests() =
+        addInterceptor(
+            HttpLoggingInterceptor { message ->
+                Log.i("Network", message)
+            }.apply { level = HttpLoggingInterceptor.Level.BODY }
+        )
 
     @Singleton
     @Provides

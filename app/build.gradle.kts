@@ -1,3 +1,6 @@
+import AppModules.withCoreModule
+import Weather.withWeatherModule
+
 plugins {
     id(Build.Plugins.androidApplicationPlugin)
     kotlin(Build.Plugins.kotlinAndroidPlugin)
@@ -51,6 +54,8 @@ dependencies {
     withAndroidX()
     withHilt()
     withNavigationComponent()
+    withCoreModule()
+    withWeatherModule()
     withTestDependencies()
 }
 

@@ -9,4 +9,6 @@ object NetworkKeys {
     external fun getBaseUrl(): String
 
     external fun getAPIKey(): String
+
+    external fun getImageBaseUrl(): String
 }

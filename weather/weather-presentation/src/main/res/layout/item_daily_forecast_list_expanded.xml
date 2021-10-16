@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardBackgroundColor="@color/colorPrimary"
+    app:cardCornerRadius="@dimen/radius_medium"
+    app:cardElevation="@dimen/cardview_default_elevation"
+    app:strokeColor="@color/off_white"
+    app:strokeWidth="1dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/padding_normal"
+        tools:background="@color/colorPrimary">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/date_tv"
+            style="@style/AppTheme.NormalTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            app:layout_constraintBottom_toBottomOf="@id/base_info_barrier"
+            app:layout_constraintEnd_toStartOf="@id/temp_tv"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Date" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/temp_tv"
+            style="@style/AppTheme.BigTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/base_info_barrier"
+            app:layout_constraintEnd_toStartOf="@id/icon_iv"
+            app:layout_constraintStart_toEndOf="@id/date_tv"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="80F" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/icon_iv"
+            android:layout_width="@dimen/icon_size_48"
+            android:layout_height="@dimen/icon_size_48"
+            android:scaleType="centerInside"
+            app:layout_constraintBottom_toBottomOf="@id/base_info_barrier"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/temp_tv"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@tools:sample/avatars" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/base_info_barrier"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="date_tv, temp_tv, icon_iv" />
+
+        <View
+            android:id="@+id/separator_one"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_margin="@dimen/margin_small"
+            android:background="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/base_info_barrier" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/sunrise_tv"
+            style="@style/AppTheme.NormalTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_small"
+            android:gravity="start"
+            app:layout_constraintBottom_toBottomOf="@id/barrier_two"
+            app:layout_constraintEnd_toStartOf="@id/sunset_tv"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/separator_one"
+            tools:text="Sunrise" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/sunset_tv"
+            style="@style/AppTheme.NormalTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="@id/barrier_two"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/sunrise_tv"
+            app:layout_constraintTop_toBottomOf="@id/separator_one"
+            tools:text="Sunset" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier_two"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="sunrise_tv, sunset_tv" />
+
+        <View
+            android:id="@+id/separator_two"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_margin="@dimen/margin_small"
+            android:background="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/barrier_two" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/description_tv"
+            style="@style/AppTheme.NormalTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_small"
+            android:gravity="start"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/wind_speed_tv"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/separator_two"
+            tools:text="Description" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/wind_speed_tv"
+            style="@style/AppTheme.NormalTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/description_tv"
+            app:layout_constraintTop_toBottomOf="@id/separator_two"
+            tools:text="Wind speed" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>
