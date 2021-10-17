@@ -1,0 +1,9 @@
+<resources>
+
+    <string name="today">Today</string>
+    <string name="sunrise">Sunrise</string>
+    <string name="sunset">Sunset</string>
+    <string name="description">Description</string>
+    <string name="wind_speed">Wind Speed</string>
+    <string name="wind_speed_format">s %d mph</string>
+</resources>
